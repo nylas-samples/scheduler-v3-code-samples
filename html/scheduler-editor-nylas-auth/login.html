@@ -1,0 +1,65 @@
+<!-- scheduling-editor.html -->
+<!DOCTYPE html>
+<html class="h-full bg-white" lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nylas Scheduler Editor Component</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+    rel="stylesheet"
+  />
+
+  <script type="module" src="./nylas-identity.es.js"></script>
+  <!-- <script type="module" src="https://cdn.jsdelivr.net/npm/test-pooja-identity@0.0.1/dist/nylas-identity.es.js"></script> -->
+  <style type="text/css">
+    body {
+      font-family: "Inter", sans-serif;
+    }
+  </style>
+</head>
+
+<body class="h-full">
+  <div class="grid h-full place-items-center">
+    <!-- Add a button to login -->
+    <button id="login">Login</button>
+  </div>
+
+  <!-- Script to check if the user is logged in -->
+<script type="module">
+  import { identity, checkLoggedIn } from './identity.js';
+
+  async function checkAuth() {
+    const urlParams = new URLSearchParams(window.location.search);
+    async function redirectIfLoggedIn() {
+      // Redirect to the scheduler editor if the user is logged in. 
+      const loggedIn = await checkLoggedIn();
+      if (loggedIn) {
+        history.replaceState({}, document.title, `${window.location.origin}/scheduler-editor`);
+        window.location.reload();
+      }
+    }
+    if (urlParams.has('code')) {
+      // Redirect to the scheduler editor if the user is logged in. 
+      // The timeout is added to ensure the user is logged in before redirecting.
+      setTimeout(redirectIfLoggedIn, 3000);
+    } else {
+      redirectIfLoggedIn();
+    }
+  }
+
+  window.addEventListener('popstate', checkAuth);
+
+  document.getElementById('login').addEventListener('click', async () => {
+    const url = await identity.auth({ provider: 'google' });
+    window.location.href = url;
+  });
+
+  // Check if the user is logged in when the page loads
+  checkAuth();
+  </script>
+</body>
+</html>   

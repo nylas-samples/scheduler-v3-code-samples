@@ -25,11 +25,13 @@ Before you begin, ensure you have the following:
    Extract the contents of the downloaded ZIP file to a directory of your choice.
 
 3. **Navigate to the extracted directory:**
+
   ```sh
     cd path-to-extracted-directory
   ```
 
 4. **Install dependencies**
+
   ```sh
     npm install
   ```
@@ -39,6 +41,7 @@ Before you begin, ensure you have the following:
   ```
 
 5. **Set up variables**
+
 You can set your Nylas application client id directly in the code or use environment variables. For this example, replace '<YOUR_NYLAS_APP_CLIENT_ID>' with your actual Nylas application client id in the App.tsx file.
 
 # Project Structure
@@ -50,19 +53,22 @@ This project demonstrates the integration of Nylas components, specifically the 
 This is the main component of the application, responsible for setting up routes and integrating Nylas components. The App component handles the configuration and routing for the scheduling functionalities.
 
 - **Dependencies**:
+
   - `react-router-dom` for client-side routing.
   - `@nylas/react` for Nylas Scheduler Editor and Scheduling components.
 
 - **Main Functionality**:
+
   - Extracts the `config_id` from the URL query string.
   - Configures Nylas Scheduler Editor with `nylasSessionsConfig` prop.
 
 ### Routing Structure
 
-	•	**/meet:** Displays the NylasScheduling component, allowing users to view and book available time slots. It includes a button to navigate to the scheduler editor.
-	•	**/scheduler-editor:** Displays the NylasSchedulerEditor component, allowing users to configure and preview scheduling settings. The configuration includes identity settings for Nylas Sessions.
+  - **/meet:** Displays the NylasScheduling component, allowing users to view and book available time slots. It includes a button to navigate to the scheduler editor.
+  - **/scheduler-editor:** Displays the NylasSchedulerEditor component, allowing users to configure and preview scheduling settings. The configuration includes identity settings for Nylas Sessions.
 
 ### How to Run
+
   1.	Start the development server:
   ```sh
     npm run dev

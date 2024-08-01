@@ -25,11 +25,13 @@ Before you begin, ensure you have the following:
    Extract the contents of the downloaded ZIP file to a directory of your choice.
 
 3. **Navigate to the extracted directory:**
+
   ```sh
     cd path-to-extracted-directory
   ```
 
 4. **Install dependencies**
+
   ```sh
     npm install
   ```
@@ -39,6 +41,7 @@ Before you begin, ensure you have the following:
   ```
 
 5. **Set up variables**
+
 You can set your Nylas application client id directly in the code or use environment variables. For this example, replace '<YOUR_NYLAS_APP_CLIENT_ID>' with your actual Nylas application client id in the App.tsx file.
 
 
@@ -51,29 +54,32 @@ This project demonstrates the integration of Nylas components, including the Sch
 This is the main component of the application, responsible for setting up routes and integrating Nylas components.
 
 - **Dependencies**: 
+
   - `react-router-dom` for routing.
   - `@nylas/react` for Nylas Scheduler Editor and Scheduling components.
   - `@nylas/login-component` for the login UI.
   - `@nylas/identity` for managing Nylas identity and sessions.
 
 - **Main Functionality**:
+
   - Extracts the `config_id` from the URL query string.
   - Configures Nylas components, including custom authentication and identity management.
 
 ### Routing Structure
 
-	•	**/meet:** Displays the NylasScheduling component, allowing users to view and book available time slots.
-	•	**/login:** Displays the LoginComp component, which handles the login process using Nylas’ OAuth flow.
-	•	**/nylas-auth/scheduler-editor:** Displays the NylasSchedulerEditor component, allowing users to configure and preview scheduling settings.
+  - **/meet:** Displays the NylasScheduling component, allowing users to view and book available time slots.
+  - **/login:** Displays the LoginComp component, which handles the login process using Nylas’ OAuth flow.
+  - **/nylas-auth/scheduler-editor:** Displays the NylasSchedulerEditor component, allowing users to configure and preview scheduling settings.
 
 ### Configuration Details
 
-	•	**clientId:** Your Nylas application client ID.
-	•	**configId:** Extracted from the URL, used to load specific scheduling configurations.
-	•	**componentSettings:** Contains settings for authentication scopes and other configurations.
-	•	**identitySettings:** Specifies settings for Nylas identity management, including clientId, redirectUri, domain, hosted, and accessType.
+  - **clientId:** Your Nylas application client ID.
+  - **configId:** Extracted from the URL, used to load specific scheduling configurations.
+  - **componentSettings:** Contains settings for authentication scopes and other configurations.
+  - **identitySettings:** Specifies settings for Nylas identity management, including clientId, redirectUri, domain, hosted, and accessType.
 
 ### How to Run
+
   1.	Start the development server:
   ```sh
     npm run dev

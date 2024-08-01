@@ -25,11 +25,13 @@ Before you begin, ensure you have the following:
    Extract the contents of the downloaded ZIP file to a directory of your choice.
 
 3. **Navigate to the extracted directory:**
+
   ```sh
     cd path-to-extracted-directory
   ```
 
 4. **Install dependencies**
+
   ```sh
     npm install
   ```
@@ -39,35 +41,43 @@ Before you begin, ensure you have the following:
   ```
 
 5. **Set up variables**
+
 You can set your Nylas access token and domain directly in the code or use environment variables. For this example, replace 'YOUR_ACCESS_TOKEN' with your actual access token in the App.tsx file.
 
 
 ### Project Structure
-	•	**App.tsx:** The main application file that sets up routing and integrates Nylas components.
-	•	**custom.ts:** Contains the CustomIdentityRequestWrapper class, which handles custom API requests and authentication.
+
+  - **App.tsx:** The main application file that sets up routing and integrates Nylas components.
+  - **custom.ts:** Contains the CustomIdentityRequestWrapper class, which handles custom API requests and authentication.
 
 ### App.tsx Overview
+
 This file contains the main application logic and routing setup using react-router-dom.
 
   **Key Components and Logic**
-	  •	**NylasSchedulerEditor:** This component is used to set up and configure scheduling.
-	  •	**NylasScheduling:** This component displays the scheduling interface for users to book appointments.
-	  •	**CustomIdentityRequestWrapper:** A custom class for handling authentication and API requests.
+
+  - **NylasSchedulerEditor:** This component is used to set up and configure scheduling.
+  - **NylasScheduling:** This component displays the scheduling interface for users to book appointments.
+  - **CustomIdentityRequestWrapper:** A custom class for handling authentication and API requests.
 
   **Routing**
-	  •	**/meet:** Displays the NylasScheduling component. Users can view and book available time slots.
-	  •	**/custom-auth/scheduler-editor:** Displays the NylasSchedulerEditor component, allowing configuration and preview of scheduling settings.
+
+  - **/meet:** Displays the NylasScheduling component. Users can view and book available time slots.
+  - **/custom-auth/scheduler-editor:** Displays the NylasSchedulerEditor component, allowing configuration and preview of scheduling settings.
 
 ### custom.ts Overview
+
 This file defines the CustomIdentityRequestWrapper class, which provides methods for handling API requests and user authentication.
 
   **Key Methods**
-	  •	**request:** Sends a request to the Nylas API with appropriate headers and authentication.
-	  •	**currentUser:** Returns user information.
-	  •	**setDefaultAuthArgs:** Sets default authentication arguments.
-	  •	**authenticationUrl:** Returns authentication URL.
+
+  - **request:** Sends a request to the Nylas API with appropriate headers and authentication.
+  - **currentUser:** Returns user information.
+  - **setDefaultAuthArgs:** Sets default authentication arguments.
+  - **authenticationUrl:** Returns authentication URL.
 
 ### How to Run
+
   1.	Start the development server:
   ```sh
     npm run dev

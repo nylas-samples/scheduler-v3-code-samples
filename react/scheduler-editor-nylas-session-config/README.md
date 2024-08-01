@@ -1,6 +1,6 @@
-# Nylas Scheduler editor example using nylas authentication
+# Nylas Scheduler editor example using nylas session config
 
-This repository provides a simple example of how to integrate the Nylas Scheduler Editor and Scheduling components in a React application. The example demonstrates how to use the `@nylas/react` library to manage scheduling functionalities, using nylas authentication with `@nylas/idenity` package and `NylasIdentityRequestWrapper`.
+This repository provides a simple example of how to integrate the Nylas Scheduler Editor and Scheduling components in a React application. The example demonstrates how to use the `@nylas/react` library to manage scheduling functionalities, using `nylasSessionConfig` prop.
 
 ## Getting Started
 

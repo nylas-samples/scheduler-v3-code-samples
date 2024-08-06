@@ -10,7 +10,7 @@ Before you begin, ensure you have the following:
 
 - **Node.js** (v12 or later)
 - **npm** or **yarn** for package management
-- **Nylas API Access Token**: You need an access token from Nylas. You can obtain this by signing up for a Nylas account and creating an application.
+- **Nylas API Access Token**: You need an access token from Nylas. Refer to the [docs](https://developer.nylas.com/docs/v3/auth/hosted-oauth-accesstoken/#make-authorization-request). **Note:** The access token should be generated from the same origin where the components are integrated.
 
 ### Installation
 

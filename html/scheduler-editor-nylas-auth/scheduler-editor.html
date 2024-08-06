@@ -1,0 +1,62 @@
+ <!-- scheduling-editor.html -->
+ <!DOCTYPE html>
+ <html class="h-full bg-white" lang="en">
+   <head>
+     <meta charset="UTF-8" />
+     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+     <title>Nylas Scheduler Editor with auth using NylasIdentityRequestWrapper</title>
+ 
+     <link rel="preconnect" href="https://fonts.googleapis.com" />
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+     <link
+       href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+       rel="stylesheet"
+     />
+ 
+     <script type="module"src="https://cdn.jsdelivr.net/npm/@nylas/web-elements@latest/dist/nylas-web-elements/nylas-web-elements.esm.js"></script>
+ 
+     <style type="text/css">
+       body {
+         font-family: "Inter", sans-serif;
+       }
+     </style>
+   </head>
+ 
+   <body class="h-full">
+     <div class="grid h-full place-items-center">
+       <!-- Add the Nylas Scheduler Editor component -->
+       <nylas-scheduler-editor />
+     </div>
+ 
+     <!-- Configure the Nylas Scheduler Editor component -->
+     <script type="module">
+       import { identity, checkLoggedIn } from './identity.js';
+       import { NylasIdentityRequestWrapper } from 'https://cdn.jsdelivr.net/npm/@nylas/web-elements@1.1.0/dist/esm/index.js';
+ 
+       const nylasApiRequest = new NylasIdentityRequestWrapper(identity); // Create a new nylasApiRequest instance
+       const schedulerEditor = document.querySelector("nylas-scheduler-editor");
+       schedulerEditor.nylasApiRequest = nylasApiRequest;
+       schedulerEditor.schedulerPreviewLink = `${window.location.origin}/?config_id={config.id}`;
+       schedulerEditor.eventOverrides = {
+         // The default behavior of the close button is to log out the user, so redirect to the login page
+         schedulerConfigCloseClicked: async (e) => {
+           setTimeout(async () => {
+             window.location.href = `${window.location.origin}/login`;
+           }, 3000);
+         },
+       }
+       schedulerEditor.defaultSchedulerConfigState = {
+         selectedConfiguration: {
+           requires_session_auth: false, // Creates a public configuration which doesn't require a session
+         },
+       };
+ 
+       // Redirect to the login page if the user is not logged in
+       checkLoggedIn().then((loggedIn) => {
+         if (!loggedIn) {
+           window.location.href = `${window.location.origin}/login`;
+         }
+       });
+     </script>
+   </body>
+ </html>   

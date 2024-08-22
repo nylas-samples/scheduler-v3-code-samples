@@ -1,0 +1,25 @@
+name: Push to Staging
+
+# Trigger the workflow on a push to the main branch
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  push-to-staging:
+    runs-on: ubuntu-latest
+    
+    steps:
+      # Checkout the code from the main branch
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Push the changes to the staging branch
+      - name: Push to staging branch
+        run: |
+          git config --global user.name "${{ github.actor }}"
+          git config --global user.email "${{ github.actor }}@users.noreply.github.com"
+          git checkout -b staging || git checkout staging
+          git merge main --no-edit
+          git push origin staging

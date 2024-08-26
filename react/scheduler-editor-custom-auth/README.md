@@ -92,9 +92,12 @@ origin - https://127.0.0.1:3000
 (Assuming they want to host the scheduler editor on localhost:3000)
 
 1. Get the code:
+```
 https://api.eu.nylas.com/v3/connect/auth?client_id=<client_id>&redirect_uri=https://127.0.0.1:3000/scheduler-editor&access_type=offline&response_type=code&options=rotate_refresh_token&provider=google
+```
 
 2. Exchange the code for token
+```
 curl -X POST https://api.eu.nylas.com/v3/connect/token \
 -H "Content-Type: application/json" \
 -H "Origin: https://127.0.0.1:3000" \
@@ -105,6 +108,7 @@ curl -X POST https://api.eu.nylas.com/v3/connect/token \
   "redirect_uri": "https://127.0.0.1:3000/scheduler-editor",
   "grant_type": "authorization_code"
 }'
+```
 
 3. Use the access token from above in the component (Redirect to http://localhost:3000/scheduler-editor. Note that you need to redirect to localhost, not https://127.0.0.1:3000)
 

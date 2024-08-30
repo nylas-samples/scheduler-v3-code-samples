@@ -1,5 +1,4 @@
-// import { NylasSessions } from 'https://cdn.jsdelivr.net/npm/test-pooja-identity@0.0.1/dist/nylas-identity.es.js';
-import { NylasSessions } from "./nylas-identity.es";
+import { NylasSessions } from 'https://cdn.jsdelivr.net/npm/@nylas/identity@latest/dist/nylas-identity.es.js';
 const config = {
    clientId: '<YOUR_NYLAS_APP_CLIENT_ID>', // Replace with your Nylas client ID from the previous section
    redirectUri: `${window.location.origin}/login`,

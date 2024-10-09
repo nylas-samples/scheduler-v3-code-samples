@@ -12,9 +12,7 @@
        href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
        rel="stylesheet"
      />
- 
-     <script type="module"src="https://cdn.jsdelivr.net/npm/@nylas/web-elements@latest/dist/nylas-web-elements/nylas-web-elements.esm.js"></script>
- 
+  
      <style type="text/css">
        body {
          font-family: "Inter", sans-serif;
@@ -30,6 +28,10 @@
  
      <!-- Configure the Nylas Scheduler Editor component -->
      <script type="module">
+        // Please make sure to replace the version number with the latest version from the Nylas CDN, it is currently set to the @canary version
+        import { defineCustomElement } from 'https://cdn.jsdelivr.net/npm/@nylas/web-elements@canary/dist/cdn/nylas-scheduler-editor/nylas-scheduler-editor.es.js';
+        defineCustomElement();
+
         const schedulerEditor = document.querySelector("nylas-scheduler-editor");
         const config = {
           clientId: '<YOUR_NYLAS_APP_CLIENT_ID>', // Replace with your Nylas client ID from the previous section
